@@ -1,0 +1,46 @@
+size = [5, 7, 300, 400, 10, 20, 100]
+
+print('Hello my name is Linh and these are my sheep sizes')
+print('[', end='')
+print(*size, sep=', ', end='')
+print(']')
+print()
+
+print('Now my biggest sheep has size', max(size),"let's shear it!" )
+print()
+
+position1 = size.index(max(size))
+size[position1] = 8
+print('After shearing, here is my flock')
+print('[', end='')
+print(*size, sep=', ', end='')
+print(']')
+print()
+
+for j in range(2):
+  print('MONTH', j+1)
+  for i in range(len(size)):
+    size[i] += 50
+  print('One month has passed, now here is my flock')
+  print('[', end='')
+  print(*size, sep=', ', end='')
+  print(']')
+  print('Now my biggest sheep has size', max(size),"let's shear it!" )
+  position1 = size.index(max(size))
+  size[position1] = 8
+  print('After shearing, here is my flock')
+  print('[', end='')
+  print(*size, sep=', ', end='')
+  print(']')
+  print()
+
+  print('MONTH 3')
+  for i in range(len(size)):
+    size[i] += 50
+  print('One month has passed, now here is my flock')
+  print('[', end='')
+  print(*size, sep=', ', end='')
+  print(']')
+  print()
+  print('My flock has size in total:', sum(size))
+  print('I would get', sum(size), '* 2$ =', str(sum(size)*2)+'$')
