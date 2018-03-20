@@ -11,4 +11,5 @@ for i in range(len(n)):
         n.remove(char)
 
 for k in alphabet.keys():
-    print(k, ' ', alphabet[k])
+    if alphabet[k] != 0:
+        print(k, ' ', alphabet[k])
