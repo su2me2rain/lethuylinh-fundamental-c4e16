@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+  </head>
+  <body>
+    {% set res = [] %}
+    {% for user in users %}
+      {% if username == user %}
+        {% set _ = res.append(1) %}
+        {% set k = users[user] %}
+        {% for key in k %}
+          <p><b>{{key}}: </b>{{k[key]}} </p>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+    {% if res == [] %}
+      <p>User not found</p>
+    {% endif %}
+  </body>
+</html>

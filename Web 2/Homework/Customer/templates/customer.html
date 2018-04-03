@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Customer</title>
+  </head>
+  <body>
+    <h1>Customer</h1>
+    {% for cus in customer %}
+      {% if cus.gender == 0 %}
+        <img src="../static/image/female-profile.jpg" alt="Ảnh">
+      {% else %}
+        <img src="../static/image/male-profile.jpg" alt="Ảnh">
+      {% endif %}
+
+      <p>Name: {{cus.name}}</p>
+      <p>{{ 'Gender: Female' if cus.gender == 0 else 'Gender: Male' }}</p>
+      <p>Email: {{cus.email}}</p>
+      <p>Phone: {{cus.phone}}</p>
+      <p>Job: {{cus.job}}</p>
+      <p>Company: {{cus.company}}</p>
+      <p>{{ 'Contact: Yes' if cus.contact else 'Contact: Not yet' }}</p>
+    {% endfor %}
+  </body>
+</html>

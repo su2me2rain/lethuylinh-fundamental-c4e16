@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      <b>Web</b>
+    </title>
+  </head>
+  <body>
+    <!-- jinja2 template -->
+    {% for p in posts %}
+      <h1> {{ p.title }} </h1>
+      <p> {{ p.content }} </p>
+      <i>
+        By:
+        <!-- conditional expression -->
+        {{ "Mr" if p.gender == 0 else "Ms" }}
+
+        {# {% if p.gender == 0 %}
+          Mr
+        {% else %}
+          Ms
+        {% endif %}
+        #}
+        
+        {{ p.author }}
+      </i>
+    {% endfor %}
+
+  </body>
+</html>
