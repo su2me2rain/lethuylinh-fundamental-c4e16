@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cập nhật thông tin</title>
+  </head>
+  <body>
+      <h1> Cập nhật thông tin</h1>
+      <!-- get, post, option, put, patch, delete -->
+      <form method='post'>
+        <!-- label, input,submit button -->
+        <label>Tên</label>
+        <input type="text" name="name" value="{{service.name}}" >
+        <p></p>
+        <label>Năm sinh</label>
+        <input type="number" name="yob" value="{{service.yob}}">
+        <p></p>
+        <label>Giới tính</label>
+        <input type="radio" name="gender" value="1" checked> Nam
+        <input type="radio" name="gender" value="0"> Nữ
+        <p></p>
+        <label>Số đo 3 vòng: </label>
+        {% set mea = service.measurement %}
+        Vòng 1: <input type="number" name="mea1" value="{{mea[0]}}">
+        Vòng 2: <input type="number" name="mea2" value="{{mea[1]}}">
+        Vòng 3: <input type="number" name="mea3" value="{{mea[2]}}">
+        <!-- {% for measure in service.measurement%}
+          <input type="number" name="{{loop.index}}" value= {{measure}}>
+        {% endfor %} -->
+        <p></p>
+        <label>Chiều cao</label>
+        <input type="number" name="height" value="{{service.height}}">
+        <p></p>
+        <label>Mô tả</label>
+        {% set des = service.description %}
+        Đặc điểm 1: <input type="text" name="des1" value="{{des[0]}}">
+        Đặc điểm 2: <input type="text" name="des2" value="{{des[1]}}">
+        Đặc điểm 3: <input type="text" name="des3" value="{{des[2]}}">
+        <p></p>
+        <label>SĐT</label>
+        <input type="text" name="phone" value="{{service.phone}}">
+        <p></p>
+        <label>Địa chỉ</label>
+        <input type="text" name="address" value="{{service.address}}">
+        <p></p>
+        <label>Trạng thái</label>
+        <input type="radio" name="gender" value='1' checked> Rảnh
+        <input type="radio" name="gender" value='0'> Bận
+        <p></p>
+        <label>Ảnh</label>
+        <input type="text" name="image" value="{{service.image}}">
+        <p></p>
+        <img src="{{service.image}}" alt="Không có ảnh" height='100'>
+        <p></p>
+        <b> Cập nhật</b> <input type="submit">
+      </form>
+  </body>
+</html>

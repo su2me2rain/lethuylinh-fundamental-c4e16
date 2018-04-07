@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Services</title>
+  </head>
+  <body>
+    <h1>Danh sách nhân viên</h1>
+    {% for service in all_services %}
+      <img src='{{service.image}}' alt='{{service.image}}' height="200">
+      <p> <b>Tên: </b> {{service.name}}</p>
+      <p> <b>Năm sinh: </b> {{service.yob}}</p>
+      <p> <b>Chiều cao: </b> {{service.height}}</p>
+      <a href="{{url_for('detail',service_id = service.id)}}"> Chi tiết </a>
+      <p></p>
+    {% endfor %}
+  </body>
+</html>

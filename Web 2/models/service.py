@@ -6,6 +6,9 @@ import mlab
 #design database
 class Service(Document):
     name = StringField()
+    image = StringField()
+    description = ListField(StringField(), default=list)
+    measurement = ListField(IntField(), default=list)
     yob = IntField()
     gender = IntField() # 0: female, 1: male
     height = IntField()

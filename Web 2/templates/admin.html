@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- table, table header, table cell, table body, table row, cell/ table data, table footer -->
+    <h1>Admin Page</h1>
+    <h3>
+      <a href="{{ url_for('create') }}">Thêm nhân viên</a>
+      <a href="{{ url_for('deleteall') }}">Xóa toàn bộ dữ liệu</a>
+    </h3>
+    <table border='1px'>
+      <thead>
+        <th>STT</th>
+        <th>Ảnh</th>
+        <th>Tên</th>
+        <th>Năm sinh</th>
+        <th>Giới tính</th>
+        <th>Chiều cao</th>
+        <th>Số đo 3 vòng</th>
+        <th>Mô tả</th>
+        <th>SĐT</th>
+        <th>Địa chỉ</th>
+        <th>Trạng thái</th>
+        <th></th>
+      </thead>
+      <tbody>
+        {% for service in services %}
+        <tr>
+          <td> {{ loop.index }} </td>
+          <td> <img src='{{service.image}}' alt='Không có ảnh' height="50"> </td>
+          <td> {{service.name}} </td>
+          <td> {{service.yob}} </td>
+          <td> {{'Nữ' if service.gender == 0 else 'Nam'}} </td>
+          <td> {{service.height}} </td>
+          <td> {% for k in service.measurement %}
+                  {{ k }} -
+                {% endfor %}
+          </td>
+          <td> {% for k in service.description %}
+                  {{ k }} ,
+               {% endfor %}
+          </td>
+          <td> {{service.phone}} </td>
+          <td> {{service.address}} </td>
+          <td> {{'Rảnh' if service.status else 'Bận'}} </td>
+          <td>
+            <a href="{{ url_for('update',service_id = service.id) }}">Sửa</a>
+            <a href="{{ url_for('delete',service_id = service.id) }}">Xóa</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

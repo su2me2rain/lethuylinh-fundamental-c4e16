@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <img src='{{service_id.image}}' alt='Không có ảnh' height="200">
+    <h1>{{service_id.name}}</h1>
+    <p> <b>Năm sinh: </b> {{service_id.yob}}</p>
+    <p> <b>Giới tính: </b>
+    {{ 'Nữ' if service_id.gender == 0 else 'Nam' }}
+    </p>
+    <p> <b>Chiều cao: </b> {{service_id.height}}</p>
+    <p> <b> Số đo 3 vòng: </b>
+      {% for k in service_id.measurement %}
+        {{ k }} -
+      {% endfor %}
+    </p>
+    <p> <b>Mô tả: </b>
+      {% for k in service_id.description %}
+        {{ k }} ,
+      {% endfor %}
+    </p>
+    <p> <b>SĐT: </b> {{service_id.phone}} </td>
+    </p> <b>Địa chỉ: </b> {{service_id.address}} </td>
+    <p> <b>Trạng thái: </b> {{'Rảnh' if service_id.status else 'Bận'}} </p>
+  </body>
+</html>
